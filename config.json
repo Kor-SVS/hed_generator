@@ -1,0 +1,69 @@
+{
+    "all_phonemes": [
+        "pau", "sil",
+        "vf", "exh", "trash",
+        "g", "n", "d", "r", "l", "m", "b", "s", "j", "ch", "k", "t", "p", "h", "kk", "tt", "pp", "ss", "jj", "K", "T", "P", "N", "RR", "L", "M", "NG",
+        "a", "eo", "o", "u", "eu", "i", "e", "y", "w"
+    ],
+
+    "phoneme_classification": {
+        "Silence": ["pau", "sil", "br"],
+
+
+        "Consonant_Yangsuneum": ["b", "pp", "p", "P", "m", "M"],
+        "Consonant_Chijoeum": ["d", "tt", "t", "s", "ss", "n", "N", "r", "l", "RR", "L", "T"],
+        "Consonant_Gyeonggugaeeum": ["j", "jj", "ch"],
+        "Consonant_Yeongugaeeum": ["g", "kk", "k", "K", "NG"],
+        "Consonant_Hueum": ["h"],
+
+        "Consonant_Jangaeeum_Payeoreum_Pyeongeum": ["b", "d", "g", "P", "T", "K"],
+        "Consonant_Jangaeeum_Payeoreum_Gyeongeum": ["pp", "tt", "kk"],
+        "Consonant_Jangaeeum_Payeoreum_Yugieum": ["p", "t", "k"],
+        "Consonant_Jangaeeum_Pachareum_Pyeongeum": ["j"],
+        "Consonant_Jangaeeum_Pachareum_Gyeongeum": ["jj"],
+        "Consonant_Jangaeeum_Pachareum_Yugieum": ["ch"],
+        "Consonant_Jangaeeum_Machareum_Pyeongeum": ["s", "h"],
+        "Consonant_Jangaeeum_Machareum_Gyeongeum": ["ss"],
+        "Consonant_Gongmyeongeum_Bieum": ["m", "M", "n", "N", "NG"],
+        "Consonant_Gongmyeongeum_Yueum": ["r", "l", "RR", "L"],
+
+
+        "Vowel_Jeonseol_Pyeongsun": ["i", "e"],
+        "Vowel_Jeonseol_Wonsun": ["y", "i", "w", "e"],
+        "Vowel_Huseol_Pyeongsun": ["eu", "eo", "a"],
+        "Vowel_Huseol_Wonsun": ["u", "o"],
+
+        "Vowel_High": ["i", "y", "eu", "u"],
+        "Vowel_Middle": ["e", "w", "eo", "o"],
+        "Vowel_Low": ["e", "a"],
+
+        "Lead_Consonant": ["g", "n", "d", "r", "l", "m", "b", "s", "j", "ch", "k", "t", "p", "h", "kk", "tt", "pp", "ss", "jj"],
+        "Middle_Vowel": ["a", "eo", "o", "u", "eu", "i", "e", "y", "w"],
+        "Last_Consonant": ["K", "T", "P", "N", "RR", "L", "M", "NG"],
+
+        "Consonant": ["g", "n", "d", "r", "l", "m", "b", "s", "j", "ch", "k", "t", "p", "h", "kk", "tt", "pp", "ss", "jj", "K", "T", "P", "N", "RR", "L", "M", "NG"],
+        "Vowel": ["a", "eo", "o", "u", "eu", "i", "e", "y", "w"],
+
+
+        "VUV_Voiced": ["a", "eo", "o", "u", "eu", "i", "e", "y", "w", "n", "r", "l", "m", "N", "RR", "L", "M", "NG", "vf"],
+        "VUV_Unvoiced": ["sil", "pau", "br", "exh", "g", "d", "b", "s", "j", "ch", "k", "t", "p", "h", "kk", "tt", "pp", "ss", "jj", "K", "T", "P"],
+
+
+        "exh": ["exh"],
+
+        "vf": ["vf"],
+
+
+        "trash": ["trash"],
+
+
+        "Consonant_g_k_kk_K": ["g", "k", "kk", "K"],
+        "Consonant_d_t_tt_T": ["d", "t", "tt", "T"],
+        "Consonant_b_p_pp_P": ["b", "p", "pp", "P"],
+        "Consonant_j_jj_ch": ["j", "jj", "ch"],
+        "Consonant_s_ss": ["s", "ss"],
+        "Consonant_n_N": ["n", "N"],
+        "Consonant_m_M": ["m", "M"],
+        "Consonant_r_l_RR_L": ["r", "l", "RR", "L"]
+    }
+}
