@@ -158,9 +158,9 @@ def str_fixed_qs_and_cqs():
 
 
 def main():
-    dic_filename = "config.json"
+    dic_filepath = "config.json"
 
-    with open(os.path.join("tool", "hed_generator", dic_filename), mode="r", encoding="utf-8") as fj:
+    with open(dic_filepath, mode="r", encoding="utf-8") as fj:
         d_json = json.load(fj)
 
     list_all_phonemes = d_json["all_phonemes"]
@@ -201,17 +201,17 @@ def main():
 
     s += str_fixed_qs_and_cqs()
 
-    hed_file_path = "tool\\hed_generator\\korean_question.hed"
+    hed_file_path = "korean_question.hed"
 
     with open(hed_file_path, mode="w", encoding="utf-8") as ft:
         ft.write(s)
 
-    in_rest_idx, in_lfx0_idx, count_dim = dim_count(hed_file_path)
+    in_rest_idx, in_lf0_idx, count_dim = dim_count(hed_file_path)
 
     with open(hed_file_path, mode="w", encoding="utf-8") as ft:
         lines = s.splitlines(keepends=False)
         lines.insert(0, f"# feature dim: {count_dim + 4} for acoustic model, {count_dim} for duration/timelag")
-        lines.insert(1, f"# in_rest_idx: {in_rest_idx}\n# in_lf0_idx: {in_lfx0_idx}\n")
+        lines.insert(1, f"# in_rest_idx: {in_rest_idx}\n# in_lf0_idx: {in_lf0_idx}\n")
         ft.write("\n".join(lines))
 
 
