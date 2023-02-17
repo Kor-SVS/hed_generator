@@ -1,7 +1,7 @@
 {
     "all_phonemes": [
         "pau", "sil",
-        "vf", "exh", "trash",
+        "vf", "exh", "trash", "q",
         "g", "n", "d", "r", "l", "m", "b", "s", "j", "ch", "k", "t", "p", "h", "kk", "tt", "pp", "ss", "jj", "K", "T", "P", "N", "RR", "L", "M", "NG",
         "a", "eo", "o", "u", "eu", "i", "e", "y", "w"
     ],
@@ -46,12 +46,14 @@
 
 
         "VUV_Voiced": ["a", "eo", "o", "u", "eu", "i", "e", "y", "w", "n", "r", "l", "m", "N", "RR", "L", "M", "NG", "vf"],
-        "VUV_Unvoiced": ["sil", "pau", "br", "exh", "g", "d", "b", "s", "j", "ch", "k", "t", "p", "h", "kk", "tt", "pp", "ss", "jj", "K", "T", "P"],
+        "VUV_Unvoiced": ["sil", "pau", "br", "exh", "q", "g", "d", "b", "s", "j", "ch", "k", "t", "p", "h", "kk", "tt", "pp", "ss", "jj", "K", "T", "P"],
 
 
         "exh": ["exh"],
 
         "vf": ["vf"],
+
+        "Glottal_stop": ["q"],
 
 
         "trash": ["trash"],

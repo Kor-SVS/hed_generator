@@ -3,7 +3,7 @@
 from nnmnkwii.io import hts
 
 
-def dim_count(hed_file_path: str = "tool\\hed_generator\\result_question_generator.hed"):
+def dim_count(hed_file_path: str = "korean_question.hed"):
     binary_dict, continuous_dict = hts.load_question_set(hed_file_path)
     in_rest_idx = 0
     in_lf0_idx = 0

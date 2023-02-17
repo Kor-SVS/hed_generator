@@ -34,7 +34,7 @@ def str_phone_questions(list_all_phonemes, dict_phoneme_classification, mode):
             continue
 
         # キーの文字列
-        if key in ["Silence", "VUV_Voiced", "VUV_Unvoiced"]:
+        if key in ["Silence", "VUV_Voiced", "VUV_Unvoiced", "NOFIX_VUV_Unvoiced"]:
             s1 = f'"{mode}-{key}"'.ljust(book_pad, " ")
         else:
             s1 = f'"{mode}-Phone_{key}"'.ljust(book_pad, " ")
@@ -160,16 +160,17 @@ def str_fixed_qs_and_cqs():
 def main():
     dic_filename = "config.json"
 
-    with open(os.path.join("tool", "hed_generator", dic_filename), mode="r", encoding="utf-8") as fj:
+    with open(dic_filename, mode="r", encoding="utf-8") as fj:
         d_json = json.load(fj)
 
     list_all_phonemes = d_json["all_phonemes"]
     dict_phoneme_VUV = {}
-    if "VUV_Voiced" in d_json["phoneme_classification"]:
-        dict_phoneme_VUV["VUV_Voiced"] = d_json["phoneme_classification"]["VUV_Voiced"]
-        dict_phoneme_VUV["VUV_Unvoiced"] = d_json["phoneme_classification"]["VUV_Unvoiced"]
-        del d_json["phoneme_classification"]["VUV_Voiced"]
-        del d_json["phoneme_classification"]["VUV_Unvoiced"]
+
+    for key in ["VUV_Voiced", "VUV_Unvoiced", "NOFIX_VUV_Unvoiced"]:
+        if key in d_json["phoneme_classification"]:
+            dict_phoneme_VUV[key] = d_json["phoneme_classification"][key]
+            del d_json["phoneme_classification"][key]
+
     dict_phoneme_classification = d_json["phoneme_classification"]
 
     l_lines = str_phone_questions(list_all_phonemes, dict_phoneme_classification, mode="L")
@@ -201,7 +202,9 @@ def main():
 
     s += str_fixed_qs_and_cqs()
 
-    hed_file_path = "tool\\hed_generator\\korean_question.hed"
+    hed_file_path = "Test/korean_question.hed"
+
+    os.makedirs(os.path.dirname(hed_file_path), exist_ok=True)
 
     with open(hed_file_path, mode="w", encoding="utf-8") as ft:
         ft.write(s)
