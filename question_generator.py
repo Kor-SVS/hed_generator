@@ -34,7 +34,7 @@ def str_phone_questions(list_all_phonemes, dict_phoneme_classification, mode):
             continue
 
         # キーの文字列
-        if key in ["Silence", "VUV_Voiced", "VUV_Unvoiced"]:
+        if key in ["Silence", "VUV_Voiced", "VUV_Unvoiced", "NOFIX_VUV_Unvoiced"]:
             s1 = f'"{mode}-{key}"'.ljust(book_pad, " ")
         else:
             s1 = f'"{mode}-Phone_{key}"'.ljust(book_pad, " ")
@@ -165,11 +165,12 @@ def main():
 
     list_all_phonemes = d_json["all_phonemes"]
     dict_phoneme_VUV = {}
-    if "VUV_Voiced" in d_json["phoneme_classification"]:
-        dict_phoneme_VUV["VUV_Voiced"] = d_json["phoneme_classification"]["VUV_Voiced"]
-        dict_phoneme_VUV["VUV_Unvoiced"] = d_json["phoneme_classification"]["VUV_Unvoiced"]
-        del d_json["phoneme_classification"]["VUV_Voiced"]
-        del d_json["phoneme_classification"]["VUV_Unvoiced"]
+
+    for key in ["VUV_Voiced", "VUV_Unvoiced", "NOFIX_VUV_Unvoiced"]:
+        if key in d_json["phoneme_classification"]:
+            dict_phoneme_VUV[key] = d_json["phoneme_classification"][key]
+            del d_json["phoneme_classification"][key]
+
     dict_phoneme_classification = d_json["phoneme_classification"]
 
     l_lines = str_phone_questions(list_all_phonemes, dict_phoneme_classification, mode="L")
@@ -182,9 +183,9 @@ def main():
 
     s += "\n\n# Phonetic definitions\n\n"
     for l, c, r in zip(l_lines["book"], c_lines["book"], r_lines["book"]):
-        s += f"{l}\n"
+        # s += f"{l}\n"
         s += f"{c}\n"
-        s += f"{r}\n"
+        # s += f"{r}\n"
         s += "\n"
 
     if len(dict_phoneme_VUV) > 0:
@@ -195,9 +196,9 @@ def main():
             s += "\n"
 
     for l, c, r in zip(l_lines["single"], c_lines["single"], r_lines["single"]):
-        s += f"{l}\n"
+        # s += f"{l}\n"
         s += f"{c}\n"
-        s += f"{r}\n"
+        # s += f"{r}\n"
 
     s += str_fixed_qs_and_cqs()
 
